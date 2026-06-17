@@ -54,6 +54,5 @@
 ![zapier_workflow2](images/b2-2_zapier.png)
 
 ### [실행 결과]
-> ⚠️ 실행 결과 이미지 경로를 확인 후 아래를 수정해주세요.
-
-![execution_result3](images/?.png)
+![execution_result3](images/b1-3_result.png)
+![execution_result3](images/b1-3_proof.png)
