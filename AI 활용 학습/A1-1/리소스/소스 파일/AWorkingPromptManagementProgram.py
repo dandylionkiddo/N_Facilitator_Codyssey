@@ -32,6 +32,12 @@ prompts = [
         "category": "번역",
         "favorite": False
     },
+    {
+        "title": "블로그 포스팅 아이디어",
+        "content": "[주제]에 대해 독자들의 호기심을 자극할 만한 블로그 제목 5개와 개요를 작성해줘.",
+        "category": "글쓰기",
+        "favorite": False
+    }
 ]
 
 categories = ["텍스트 생성", "이미지 생성", "영상 생성", "페르소나", "자동화", "기타"]
