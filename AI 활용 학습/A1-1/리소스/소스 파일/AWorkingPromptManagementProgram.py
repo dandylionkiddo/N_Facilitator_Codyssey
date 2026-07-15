@@ -202,6 +202,11 @@ def show_favorites():
 def keyword_search_prompts():
     pass  # This function is defined but not implemented yet.
 
+def save_to_file():
+    pass  # This function is defined but not implemented yet.
+def load_from_file():
+    pass  # This function is defined but not implemented yet.
+
 def main():
     while True:
         choice = show_menu()
