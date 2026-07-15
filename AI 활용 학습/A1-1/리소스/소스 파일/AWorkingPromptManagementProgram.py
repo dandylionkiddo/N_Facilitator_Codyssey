@@ -86,7 +86,11 @@ def view_by_category():
     
     try:
         choice = int(input("선택: "))
-        selected_cat = categories[choice - 1]
+        if 1 <= choice <= len(categories):
+            selected_cat = categories[choice - 1]
+        else:
+            print("❌ 잘못된 선택입니다.")
+            return
         
         filtered = [p for p in prompts if p["category"] == selected_cat]
         
@@ -98,8 +102,8 @@ def view_by_category():
                 fav_star = " ⭐" if p["favorite"] else ""
                 print(f"{i}. {p['title']}{fav_star}")
             print(f"\n총 {len(filtered)}개의 프롬프트")
-    except (ValueError, IndexError):
-        print("❌ 잘못된 선택입니다.")
+    except ValueError:
+        print("❌ 숫자만 입력 가능합니다.")
 
 def search_prompt():
     print("\n=== 프롬프트 검색 ===")
