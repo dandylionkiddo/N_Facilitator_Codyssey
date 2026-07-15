@@ -38,25 +38,41 @@ def show_menu():
 
 def add_prompt():
     print("\n=== 프롬프트 추가 ===")
-    title = input("제목: ").strip()
-    content = input("내용: ").strip()
     
-    if not title or not content:
-        print("❌ 오류: 제목과 내용은 비어있을 수 없습니다.")
-        return
+    # 1. 제목 입력 (비어있으면 무한 반복)
+    while True:
+        title = input("제목: ").strip()
+        if title:
+            break
+        print("❌ 제목은 필수 입력 사항입니다.")
 
+    # 2. 내용 입력 (비어있으면 무한 반복)
+    while True:
+        content = input("내용: ").strip()
+        if content:
+            break
+        print("❌ 내용은 필수 입력 사항입니다.")
+
+    # 3. 카테고리 선택 및 직접 입력
     print("\n카테고리 선택:")
     for i, cat in enumerate(categories, 1):
         print(f"{i}) {cat}")
+    print(f"{len(categories) + 1}) 직접 입력") # 직접 입력 옵션 추가
     
-    try:
-        cat_choice = int(input("선택: "))
-        if 1 <= cat_choice <= len(categories):
-            category = categories[cat_choice - 1]
-        else:
-            category = "기타"
-    except ValueError:
-        category = "기타"
+    while True:
+        try:
+            choice = int(input("선택: "))
+            if 1 <= choice <= len(categories):
+                category = categories[choice - 1]
+                break
+            elif choice == len(categories) + 1:
+                category = input("새 카테고리 이름 입력: ").strip()
+                if not category: category = "기타"
+                break
+            else:
+                print("❌ 목록에 있는 번호를 선택해주세요.")
+        except ValueError:
+            print("❌ 숫자만 입력 가능합니다.")
 
     new_prompt = {
         "title": title,
@@ -65,7 +81,7 @@ def add_prompt():
         "favorite": False
     }
     prompts.append(new_prompt)
-    print("\n✅ 프롬프트가 추가되었습니다!")
+    print(f"\n✅ '{title}' 프롬프트가 추가되었습니다!")
 
 def show_list():
     print("\n=== 프롬프트 목록 ===")
