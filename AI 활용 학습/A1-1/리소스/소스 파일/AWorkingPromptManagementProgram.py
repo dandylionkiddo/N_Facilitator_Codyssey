@@ -199,6 +199,9 @@ def show_favorites():
             print(f"{i}. [{p['category']}] {p['title']} ⭐")
         print(f"\n총 {len(favorites)}개의 즐겨찾기")
 
+def keyword_search_prompts():
+    pass  # This function is defined but not implemented yet.
+
 def main():
     while True:
         choice = show_menu()
